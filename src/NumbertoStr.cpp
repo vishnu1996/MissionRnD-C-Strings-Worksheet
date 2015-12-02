@@ -19,7 +19,40 @@ NOTES: Don't create new string.
 
 #include <stdio.h>
 
+void number_to_str(float number, char *str, int afterdecimal)
+{
+	int i, j, no, len, found = 0; char c;
+	for (i = 0; i < afterdecimal; i++)
+		number = number * 10;
+	no = (int)number;
+	/*for (i = 0; number - (int)number != 0; i++)
+	number = number * 10;
+	no = (int)(number / pow(10, (i - afterdecimal)));*/
+	if (no < 0)
+	{	no = -1 * no;		found = 1;  	}
 
-void number_to_str(float number, char *str,int afterdecimal){
-	
+	for (j = 0; j != afterdecimal; j++)
+	{
+		str[j] = (no % 10) + 48;
+		no = no / 10;
+	}
+
+	str[j] = '.';
+
+	for (j++; no > 0; j++)
+	{
+		str[j] = (no % 10) + 48;
+		no = no / 10;
+	}
+	if (found == 1)
+	{	str[j] = '-';		j++;	}
+	str[j] = '\0';
+	len = j - 1;
+	for (i = len, j = 0; i > len / 2; i--, j++)    //reversing string
+	{
+		c = str[i];
+		str[i] = str[j];
+		str[j] = c;
+	}
+	return;
 }
