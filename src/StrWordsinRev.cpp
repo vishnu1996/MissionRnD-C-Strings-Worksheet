@@ -16,7 +16,7 @@ void str_words_in_rev(char *input, int len)
 {
 	int i, j, k, found = 0; char c;
 	/*if (input == NULL || len < 0)
-		return '\0';*/
+		return NULL;*/
 	for (i = 0; i <= len; i++)
 	{
 		if (input[i] == ' ' || input[i] == '\0')
