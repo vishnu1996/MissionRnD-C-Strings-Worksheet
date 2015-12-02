@@ -16,7 +16,7 @@ char KthIndexFromEnd(char *str, int K)
 {
 	int i;
 
-	if (str == nullptr || stringlength(str) - 1 < K || K < 0)
+	if (str == nullptr || stringlength(str) <= K || K < 0)
 		return '\0';
 	for (i = 0; str[i] != '\0'; i++)
 	{
